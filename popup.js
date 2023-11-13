@@ -7,8 +7,7 @@ document.addEventListener('DOMContentLoaded', function () {
     loadLists(function (exactDomains, wildcardDomains) {
       // Check if the domain is in the list
       if (exactDomains.includes(domain)) {
-        setStatus('Domain is in the list');
-        changeIconColor('green');
+        setStatus('Domain is art of a bounty program');
       } else {
         // Check if the domain matches any wildcard
         var isWildcardMatch = wildcardDomains.some(wildcard => {
@@ -17,12 +16,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
         if (isWildcardMatch) {
-          setStatus('Domain matches a wildcard');
-          changeIconColor('orange');
+          setStatus('Domain matches a wildcard target');
           //chrome.browserAction.setIcon({path: {'48':'green.png'}});
         } else {
-          setStatus('Domain is not in the list');
-          changeIconColor('red');
+          setStatus('Domain is not part of a bounty program');
         }
       }
     });
@@ -51,11 +48,6 @@ function setStatus(message) {
   document.getElementById('status').innerText = message;
 }
 
-function changeIconColor(color) {
-  chrome.browserAction.setBadgeBackgroundColor({ color: color });
-  chrome.browserAction.setBadgeText({ text: "D" });
-
-}
 
 function matchWildcard(domain, wildcard) {
   var regex = new RegExp('^' + wildcard.replace(/\*/g, '.*') + '$');

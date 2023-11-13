@@ -1,8 +1,8 @@
 {
   "manifest_version": 2,
-  "name": "Domain Checker",
+  "name": "isBounty",
   "version": "1.0",
-  "description": "Check if the current website is in a predefined list of domains.",
+  "description": "Check if the current website is part of abug bounty program.",
   "permissions": ["activeTab","tabs"],
   "background": {
     "scripts": ["background.js"],
