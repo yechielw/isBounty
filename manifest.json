@@ -1,0 +1,26 @@
+{
+  "manifest_version": 2,
+  "name": "Domain Checker",
+  "version": "1.0",
+  "description": "Check if the current website is in a predefined list of domains.",
+  "permissions": ["activeTab","tabs"],
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+  "browser_action": {
+    "default_icon": "icon.png",
+    "default_popup": "popup.html"
+
+  },
+  "icons": {
+    "48": "icon.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    }
+  ]
+}
+
